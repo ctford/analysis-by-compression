@@ -73,7 +73,7 @@
 ;;; Drawing Hands ;;;
 ;;;;;;;;;;;;;;;;;;;;;
 
-(defn complexity
+(defn magic-complexity-function
   "An impossible function that determines the Kolmogorov complexity of any value."
   [string]
   (->> string (map int) (reduce + 0)))
@@ -83,7 +83,7 @@
   []
   (let [source (repl/source-fn 'enterprise)]
     (->> (library-of-babel)
-         (drop-while #(<= (complexity %) (result-length source)))
+         (drop-while #(<= (magic-complexity-function %) (result-length source)))
          first)))
 
 
